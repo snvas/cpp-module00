@@ -49,7 +49,7 @@ std::string PhoneBook::input_one(std::string put_string) const
 
 	while(str.empty())
 	{
-		std::cout << put_string << std::endl;
+		std::cout << RESET << put_string << BLUE <<std::endl;
 		if (std::getline(std::cin, str).eof())
 			break;
 	}
@@ -64,7 +64,7 @@ void PhoneBook::add_command()
 	std::string phone_number;
 	std::string darkest_secret;
 
-	std::cout << "Please input the contact information:" << std::endl;
+	std::cout << BLUE << "Please input the contact information:" << std::endl;
 	first_name = input_one("Enter first name");
 	last_name = input_one("Enter last name");
 	nickname = input_one("Enter nickname");
@@ -74,14 +74,14 @@ void PhoneBook::add_command()
 	darkest_secret = input_one("Enter darkest secret");
 	cot[add_index].set_contact(first_name, last_name, nickname, phone_number, darkest_secret);
 	add_index = (add_index + 1) % CONTACT_NUM;
-	std::cout << "Registrations is complete\n" << std::endl;
+	std::cout << MAGENTA << "Registration is complete\n" << RESET << std::endl;
 }
 
 void PhoneBook::search_command() const
 {
 	if(cot[0].is_empty())
 	{
-		std::cout << "there are no contacts to display\n" << std::endl;
+		std::cout << MAGENTA << "There are no contacts to display\n" << RESET << std::endl;
 		return ;
 	}
 	put_contact_list();
@@ -90,7 +90,7 @@ void PhoneBook::search_command() const
 	{
 		std::string str;
 
-		std::cout << "Enter an index" << std::endl;
+		std::cout << BLUE << "Enter an index" << RESET << std::endl;
 		if(std::getline(std::cin, str).eof())
 			break;
 		if(str.length() == 1 && \
@@ -101,7 +101,7 @@ void PhoneBook::search_command() const
 				break;
 			}
 			else{
-				std::cout << "invalid input" << std::endl;
+				std::cout << MAGENTA << "Invalid input" << RESET << std::endl;
 			}
 	}
 }
@@ -122,7 +122,7 @@ void PhoneBook::loop()
 			search_command();
 		else if (command == "EXIT")
 		{
-			std::cout << "Bye bye!" << std::endl;
+			std::cout << MAGENTA << "Bye bye!" << RESET << std::endl;
 			break;
 		}
 	}

@@ -2,14 +2,14 @@
 
 void	PhoneBook::title(void)
 {
-	std::cout << std::endl;
+	std::cout << MAGENTA << std::endl;
 	std::cout << "██████╗ ██╗  ██╗ ██████╗ ███╗   ██╗███████╗██████╗  ██████╗  ██████╗ ██╗  ██╗" << std::endl;
 	std::cout << "██╔══██╗██║  ██║██╔═══██╗████╗  ██║██╔════╝██╔══██╗██╔═══██╗██╔═══██╗██║ ██╔╝" << std::endl;
 	std::cout << "██████╔╝███████║██║   ██║██╔██╗ ██║█████╗  ██████╔╝██║   ██║██║   ██║█████╔╝ " << std::endl;
 	std::cout << "██╔═══╝ ██╔══██║██║   ██║██║╚██╗██║██╔══╝  ██╔══██╗██║   ██║██║   ██║██╔═██╗ " << std::endl;
 	std::cout << "██║     ██║  ██║╚██████╔╝██║ ╚████║███████╗██████╔╝╚██████╔╝╚██████╔╝██║  ██╗" << std::endl;
 	std::cout << "╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝╚═════╝  ╚═════╝  ╚═════╝ ╚═╝  ╚═╝" << std::endl;
-	std::cout << std::endl;
+	std::cout << RESET << std::endl;
 	std::cout << "Welcome to your phonebook!\nThe available entries are: " << std::endl;
 	std::cout << "█ ADD: add a contact" << std::endl;
 	std::cout << "█ SEARCH: Display a contact" << std::endl;
@@ -20,7 +20,7 @@ bool PhoneBook::validPhoneNumber(std::string phoneNumber){
 	std::string set = "0123456789 +-()";
 
 	if(phoneNumber.length() < 8 || phoneNumber.length() > 16){
-		std::cout << "Invalid phone number!"
+		std::cout << RESET << "Invalid phone number!"
 				<< std::endl << std::endl;
 		return(false);
 	}
