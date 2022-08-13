@@ -1,30 +1,30 @@
 #include <iostream>
 #include <string>
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	if (argc == 1)
-		std::cout << "* LOAD AND UNBEARABLE FEEDBACK NOISE" << std::endl;
-	else
-	{
-		std::string text;
-		int i;
-		size_t j;
+	int	i;
+	int j;
 
-		i = 0;
-		while(++i < argc){
-			std::string str = argv[i];
-			j = 0;
-			while (str.length() > j)
-			{
-				str[j] = std::toupper(str[j]);
-				j++;
-			}
-			text +=str;
-			i++;
-			if (i != argc -1)
-				text += " ";
-		}
-		std::cout << text << std::endl;
+	i = 1;
+	j = 0;
+	if (argc == 1)
+	{
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE. *" << std::endl;
+		return (0);
 	}
+	while (i < argc)
+	{
+		j = 0;
+		while (argv[i][j] != '\0')
+		{
+			std::cout << (char)(std::toupper(argv[i][j]));
+			j++;
+		}
+		if (i != argc - 1)
+			std::cout << " ";
+		i++;
+	}
+	std::cout << std::endl;
+	return (0);
 }

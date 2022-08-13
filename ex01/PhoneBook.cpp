@@ -127,19 +127,3 @@ void PhoneBook::loop()
 		}
 	}
 }
-
-void	PhoneBook::title(void)
-{
-	std::cout << std::endl;
-	std::cout << "██████╗ ██╗  ██╗ ██████╗ ███╗   ██╗███████╗██████╗  ██████╗  ██████╗ ██╗  ██╗" << std::endl;
-	std::cout << "██╔══██╗██║  ██║██╔═══██╗████╗  ██║██╔════╝██╔══██╗██╔═══██╗██╔═══██╗██║ ██╔╝" << std::endl;
-	std::cout << "██████╔╝███████║██║   ██║██╔██╗ ██║█████╗  ██████╔╝██║   ██║██║   ██║█████╔╝ " << std::endl;
-	std::cout << "██╔═══╝ ██╔══██║██║   ██║██║╚██╗██║██╔══╝  ██╔══██╗██║   ██║██║   ██║██╔═██╗ " << std::endl;
-	std::cout << "██║     ██║  ██║╚██████╔╝██║ ╚████║███████╗██████╔╝╚██████╔╝╚██████╔╝██║  ██╗" << std::endl;
-	std::cout << "╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝╚═════╝  ╚═════╝  ╚═════╝ ╚═╝  ╚═╝" << std::endl;
-	std::cout << std::endl;
-	std::cout << "Welcome to your phonebook!\nThe available entries are: " << std::endl;
-	std::cout << "█ ADD: add a contact" << std::endl;
-	std::cout << "█ SEARCH: Display a contact" << std::endl;
-	std::cout << "█ EXIT: Exit the program\n\n" << std::endl;
-}
