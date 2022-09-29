@@ -1,21 +1,5 @@
 #include "PhoneBook.hpp"
 
-void	PhoneBook::title(void)
-{
-	std::cout << MAGENTA << std::endl;
-	std::cout << "██████╗ ██╗  ██╗ ██████╗ ███╗   ██╗███████╗██████╗  ██████╗  ██████╗ ██╗  ██╗" << std::endl;
-	std::cout << "██╔══██╗██║  ██║██╔═══██╗████╗  ██║██╔════╝██╔══██╗██╔═══██╗██╔═══██╗██║ ██╔╝" << std::endl;
-	std::cout << "██████╔╝███████║██║   ██║██╔██╗ ██║█████╗  ██████╔╝██║   ██║██║   ██║█████╔╝ " << std::endl;
-	std::cout << "██╔═══╝ ██╔══██║██║   ██║██║╚██╗██║██╔══╝  ██╔══██╗██║   ██║██║   ██║██╔═██╗ " << std::endl;
-	std::cout << "██║     ██║  ██║╚██████╔╝██║ ╚████║███████╗██████╔╝╚██████╔╝╚██████╔╝██║  ██╗" << std::endl;
-	std::cout << "╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝╚═════╝  ╚═════╝  ╚═════╝ ╚═╝  ╚═╝" << std::endl;
-	std::cout << RESET << std::endl;
-	std::cout << "Welcome to your phonebook!\nThe available entries are: " << std::endl;
-	std::cout << "█ ADD: add a contact" << std::endl;
-	std::cout << "█ SEARCH: Display a contact" << std::endl;
-	std::cout << "█ EXIT: Exit the program\n\n" << std::endl;
-}
-
 bool PhoneBook::validPhoneNumber(std::string phoneNumber){
 	std::string set = "0123456789 +-()";
 
@@ -39,6 +23,5 @@ int main (void)
 {
 	PhoneBook book;
 
-	book.title();
 	book.loop();
 }

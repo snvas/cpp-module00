@@ -1,8 +1,10 @@
 #include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook() : add_index(0){}
+//{add_index = 0}
+//member initialize list
 
-void PhoneBook::put_one(std::string str) const
+void PhoneBook::printOne(std::string str) const
 {
 	size_t	str_len;
 
@@ -17,7 +19,7 @@ void PhoneBook::put_one(std::string str) const
 	}
 }
 
-void PhoneBook::put_contact_list() const
+void PhoneBook::printContactList() const
 {
 	int i;
 
@@ -28,22 +30,22 @@ void PhoneBook::put_contact_list() const
 	std::cout << "|" << std::setw(10) << std::right << "Last name";
 	std::cout << "|" << std::setw(10) << std::right << "Nickname" << "|" << std::endl;
 	std::cout << "├──────────┼──────────┼──────────┼──────────┤" << std::endl;
-	while(i< CONTACT_NUM && !cot[i].is_empty())
+	while(i< CONTACT_NUM && !cot[i].isEmpty())
 	{
 		std::cout << "|" << std::setw(10) << std::right << i;
 		std::cout << "|" << std::setw(10);
-		put_one(cot[i].get_first_name());
+		printOne(cot[i].setFirstName());
 		std::cout << "|" << std::setw(10);
-		put_one(cot[i].get_last_name());
+		printOne(cot[i].setLastName());
 		std::cout << "|" << std::setw(10);
-		put_one(cot[i].get_nickname());
+		printOne(cot[i].setNickname());
 		std::cout << "|" << std::endl;
 		++i;
 	}
 	std::cout << "└──────────┴──────────┴──────────┴──────────┘" << std::endl;
 }
 
-std::string PhoneBook::input_one(std::string put_string) const
+std::string PhoneBook::inputOne(std::string put_string) const
 {
 	std::string str;
 
@@ -56,7 +58,7 @@ std::string PhoneBook::input_one(std::string put_string) const
 	return str;
 }
 
-void PhoneBook::add_command()
+void PhoneBook::addCommand()
 {
 	std::string first_name;
 	std::string last_name;
@@ -65,26 +67,28 @@ void PhoneBook::add_command()
 	std::string darkest_secret;
 
 	std::cout << BLUE << "Please input the contact information:" << std::endl;
-	first_name = input_one("Enter first name");
-	last_name = input_one("Enter last name");
-	nickname = input_one("Enter nickname");
-	phone_number = input_one("Enter phone number");
+	first_name = inputOne("Enter first name");
+	last_name = inputOne("Enter last name");
+	nickname = inputOne("Enter nickname");
+	phone_number = inputOne("Enter phone number");
 	if(!validPhoneNumber(phone_number))
 		return;
-	darkest_secret = input_one("Enter darkest secret");
-	cot[add_index].set_contact(first_name, last_name, nickname, phone_number, darkest_secret);
-	add_index = (add_index + 1) % CONTACT_NUM;
+	darkest_secret = inputOne("Enter darkest secret");
+	cot[add_index].createContact(first_name, last_name, nickname, phone_number, darkest_secret);
+	add_index = (add_index + 1) % CONTACT_NUM; //limita a 8 contatos
 	std::cout << MAGENTA << "Registration is complete\n" << RESET << std::endl;
+	if(add_index == 8)
+		std::cout << "Your phonebook is full.\nIf you want to add a new contact, I am going to delete the first contact I stored, index #1." << std::endl;
 }
 
-void PhoneBook::search_command() const
+void PhoneBook::searchCommand() const
 {
-	if(cot[0].is_empty())
+	if(cot[0].isEmpty())
 	{
 		std::cout << MAGENTA << "There are no contacts to display\n" << RESET << std::endl;
 		return ;
 	}
-	put_contact_list();
+	printContactList();
 
 	while (true)
 	{
@@ -95,8 +99,8 @@ void PhoneBook::search_command() const
 			break;
 		if(str.length() == 1 && \
 			'0' <= str[0] && str[0] <= '7' && \
-			!cot[str[0] - '0'].is_empty()){
-				cot[str[0] - '0'].put_contact();
+			!cot[str[0] - '0'].isEmpty()){
+				cot[str[0] - '0'].printContact();
 				std::cout << std::endl;
 				break;
 			}
@@ -117,9 +121,9 @@ void PhoneBook::loop()
 		if (std::getline(std::cin, command).eof())
 			break;
 		if (command == "ADD")
-			add_command();
+			addCommand();
 		else if (command == "SEARCH")
-			search_command();
+			searchCommand();
 		else if (command == "EXIT")
 		{
 			std::cout << MAGENTA << "Bye bye!" << RESET << std::endl;
