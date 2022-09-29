@@ -1,4 +1,4 @@
-#include "contact.hpp"
+#include "Contact.hpp"
 
 void contact::createContact(std::string first_name,
 						std::string last_name,

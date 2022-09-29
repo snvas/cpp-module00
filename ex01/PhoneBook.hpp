@@ -1,7 +1,7 @@
 #ifndef PHONEBOOK_CLASS_H
 #define PHONEBOOK_CLASS_H
 
-#include "contact.hpp"
+#include "Contact.hpp"
 #include <iomanip>
 
 #define CONTACT_NUM 8

@@ -3,7 +3,7 @@ CC		=	clang++
 INCLUDES	=	includes
 CPPFLAGS	=	-Wall -Werror -Wextra -std=c++98 -I$(INCLUDES)
 RM			=	rm -rf
-SRCS		=	contact.cpp \
+SRCS		=	Contact.cpp \
 				main.cpp \
 				PhoneBook.cpp\
 
