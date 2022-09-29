@@ -15,8 +15,8 @@ class PhoneBook{
 		void loop();
 
 	private:
-		contact cot[8];
-		int add_index;
+		contact cont[8];
+		int addIndex;
 		void printOne(std::string str) const;
 		void printContactList() const;
 		std::string inputOne(std::string put_string) const;
