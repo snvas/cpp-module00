@@ -4,7 +4,7 @@
 #include "Contact.hpp"
 #include <iomanip>
 
-#define CONTACT_NUM 2
+#define CONTACT_NUM 8
 #define RESET "\033[0m"
 #define BLUE "\033[34m"
 #define MAGENTA "\033[35m"
