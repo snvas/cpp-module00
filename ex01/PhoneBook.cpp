@@ -1,6 +1,8 @@
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook() : addIndex(0){}
+PhoneBook::PhoneBook() : addIndex(0){
+	std::cout << "Welcome to PhoneBook! Created a list for up to 8 contacts" << std::endl;
+}
 
 void PhoneBook::printOne(std::string str) const
 {
