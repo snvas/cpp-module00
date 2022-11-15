@@ -17,21 +17,22 @@ void contact::printContact() const
 {
 	std::cout << "First name: " << this->first_name << std::endl;
 	std::cout << "Last name: " << this->last_name << std::endl;
-	std::cout << "Nickname: " << this->phone_number << std::endl;
+	std::cout << "Nickname: " << this->nickname << std::endl;
+	std::cout << "Phone number" << this->phone_number << std::endl;
 	std::cout << "Darkest secret: " << this->darkest_secret << std::endl; 
 }
 
-std::string contact::setFirstName() const
+std::string contact::getFirstName() const
 {
 	return this->first_name;
 }
 
-std::string contact::setLastName() const
+std::string contact::getLastName() const
 {
 	return this->last_name;
 }
 
-std::string contact::setNickname() const
+std::string contact::getNickname() const
 {
 	return this->nickname;
 }

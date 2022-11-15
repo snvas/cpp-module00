@@ -4,7 +4,7 @@
 #include "Contact.hpp"
 #include <iomanip>
 
-#define CONTACT_NUM 8
+#define CONTACT_NUM 2
 #define RESET "\033[0m"
 #define BLUE "\033[34m"
 #define MAGENTA "\033[35m"
@@ -15,14 +15,13 @@ class PhoneBook{
 		void loop();
 
 	private:
-		contact cont[8];
+		contact cont[CONTACT_NUM];
 		int addIndex;
 		void printOne(std::string str) const;
 		void printContactList() const;
 		std::string inputOne(std::string put_string) const;
 		void addCommand();
 		void searchCommand() const;
-		bool validPhoneNumber(std::string phoneNumber);
 };
 
 #endif

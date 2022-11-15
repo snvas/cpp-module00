@@ -1,8 +1,6 @@
 #include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook() : addIndex(0){}
-//{add_index = 0}
-//member initialize list
 
 void PhoneBook::printOne(std::string str) const
 {
@@ -30,15 +28,15 @@ void PhoneBook::printContactList() const
 	std::cout << "|" << std::setw(10) << std::right << "Last name";
 	std::cout << "|" << std::setw(10) << std::right << "Nickname" << "|" << std::endl;
 	std::cout << "├──────────┼──────────┼──────────┼──────────┤" << std::endl;
-	while(i< CONTACT_NUM && !cont[i].isEmpty())
+	while(i < CONTACT_NUM && !cont[i].isEmpty())
 	{
-		std::cout << "|" << std::setw(10) << std::right << i;
+		std::cout << "|" << std::setw(10) << std::right << i + 1;
 		std::cout << "|" << std::setw(10);
-		printOne(cont[i].setFirstName());
+		printOne(cont[i].getFirstName());
 		std::cout << "|" << std::setw(10);
-		printOne(cont[i].setLastName());
+		printOne(cont[i].getLastName());
 		std::cout << "|" << std::setw(10);
-		printOne(cont[i].setNickname());
+		printOne(cont[i].getNickname());
 		std::cout << "|" << std::endl;
 		++i;
 	}
@@ -71,14 +69,12 @@ void PhoneBook::addCommand()
 	last_name = inputOne("Enter last name");
 	nickname = inputOne("Enter nickname");
 	phone_number = inputOne("Enter phone number");
-	if(!validPhoneNumber(phone_number))
-		return;
 	darkest_secret = inputOne("Enter darkest secret");
 	cont[addIndex].createContact(first_name, last_name, nickname, phone_number, darkest_secret);
-	addIndex = (addIndex + 1) % CONTACT_NUM; //limita a 8 contatos
 	std::cout << MAGENTA << "Registration is complete\n" << RESET << std::endl;
-	if(addIndex == 8)
+	if(addIndex == CONTACT_NUM - 1)
 		std::cout << "Your phonebook is full.\nIf you want to add a new contact, I am going to delete the first contact I stored, index #1." << std::endl;
+	addIndex = (addIndex + 1) % CONTACT_NUM;
 }
 
 void PhoneBook::searchCommand() const
@@ -89,7 +85,6 @@ void PhoneBook::searchCommand() const
 		return ;
 	}
 	printContactList();
-
 	while (true)
 	{
 		std::string str;
@@ -98,9 +93,10 @@ void PhoneBook::searchCommand() const
 		if(std::getline(std::cin, str).eof())
 			break;
 		if(str.length() == 1 && \
-			'0' <= str[0] && str[0] <= '7' && \
-			!cont[str[0] - '0'].isEmpty()){
-				cont[str[0] - '0'].printContact();
+			'1' <= str[0] && str[0] <= '8' && \
+			!cont[str[0] - '1'].isEmpty())
+			{
+				cont[str[0] - '1'].printContact();
 				std::cout << std::endl;
 				break;
 			}
@@ -126,7 +122,7 @@ void PhoneBook::loop()
 			searchCommand();
 		else if (command == "EXIT")
 		{
-			std::cout << MAGENTA << "Bye bye!" << RESET << std::endl;
+			std::cout << MAGENTA << "Your contacts are lost forever! Bye bye!" << RESET << std::endl;
 			break;
 		}
 	}

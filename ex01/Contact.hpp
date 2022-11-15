@@ -12,9 +12,9 @@ class contact{
 						std::string phone_number,
 						std::string darkest_secret);
 		void printContact() const;
-		std::string setFirstName() const;
-		std::string setLastName() const;
-		std::string setNickname() const;
+		std::string getFirstName() const;
+		std::string getLastName() const;
+		std::string getNickname() const;
 		bool isEmpty() const;
 	
 	private:
@@ -23,7 +23,6 @@ class contact{
 		std::string nickname;
 		std::string phone_number;
 		std::string darkest_secret;
-
 };
 
 #endif
